@@ -57,6 +57,13 @@ export const pomodoroReducer = (
 
             const newTime = getDurationFor(nextPhase, state);
 
+            const audio = new Audio("/sounds/notification.wav");
+            audio.play().catch(() => {
+                console.warn(
+                    "Sound could not be played. The user may not have interacted with the page yet."
+                );
+            });
+
             return {
                 ...state,
                 phase: nextPhase,
