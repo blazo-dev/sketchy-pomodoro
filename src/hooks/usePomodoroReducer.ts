@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useRef, useReducer } from "react";
 import {
     POMODORO_ACTIONS,
     pomodoroReducer,
@@ -11,15 +11,41 @@ export default function usePomodoroReducer() {
         initialPomodoroState
     );
 
+    const intervalRef = useRef<number | null>(null);
+
+    useEffect(() => {
+        if (pomodoro.isRunning && intervalRef.current === null) {
+            intervalRef.current = window.setInterval(() => {
+                dispatch({ type: POMODORO_ACTIONS.TICK });
+            }, 1000);
+        }
+
+        if (!pomodoro.isRunning && intervalRef.current !== null) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        }
+
+        return () => {
+            if (intervalRef.current !== null) {
+                clearInterval(intervalRef.current);
+                intervalRef.current = null;
+            }
+        };
+    }, [pomodoro.isRunning]);
+
+    useEffect(() => {
+        if (pomodoro.isRunning && pomodoro.timeLeft <= 0) {
+            dispatch({ type: POMODORO_ACTIONS.NEXT_PHASE });
+        }
+    }, [pomodoro.timeLeft, pomodoro.isRunning]);
+
     const startPomodoro = () => {
         if (pomodoro.isRunning) return;
-
         dispatch({ type: POMODORO_ACTIONS.START });
     };
 
     const pausePomodoro = () => {
         if (!pomodoro.isRunning) return;
-
         dispatch({ type: POMODORO_ACTIONS.PAUSE });
     };
 
@@ -32,9 +58,7 @@ export default function usePomodoroReducer() {
     };
 
     const completePhase = () => {
-        dispatch({
-            type: POMODORO_ACTIONS.NEXT_PHASE,
-        });
+        dispatch({ type: POMODORO_ACTIONS.NEXT_PHASE });
     };
 
     const setDurations = (durations: {
