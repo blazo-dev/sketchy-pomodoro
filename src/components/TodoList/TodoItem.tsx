@@ -11,14 +11,14 @@ function TodoItem({ todo }: Props) {
     const { title, completed, id } = todo;
 
     return (
-        <li className="flex items-center gap-3 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 sketch-rotate-1">
+        <li className="flex items-center gap-3 p-4 rounded-lg bg-gray-100 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 sketch-rotate-1">
             <input
                 type="checkbox"
                 className="w-5 h-5 text-red-500 dark:text-red-400"
                 checked={completed}
                 onChange={() => completeTodo(id)}
             />
-            <span className="flex-1 text-gray-800 dark:text-gray-200">{title}</span>
+            <span className="flex-1 text-gray-800 dark:text-gray-200 break-all">{title}</span>
             <button
                 type="button"
                 onClick={() => removeTodo(id)}
