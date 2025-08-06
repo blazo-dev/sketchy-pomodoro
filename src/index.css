@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-kalam: 'Kalam', cursive;
+  --font-caveat: 'Caveat', cursive;
+
+  --animate-wiggle: wiggle 0.5s ease-in-out;
+  --animate-bounce-sketch: bounce-sketch 0.5s ease-in-out;
+
+  @keyframes wiggle {
+
+    0%,
+    100% {
+      transform: rotate(-5deg);
+    }
+
+    50% {
+      transform: rotate(5deg);
+    }
+    
+  }
+
+  @keyframes bounce-sketch {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0) rotate(-1deg);
+    }
+
+    40% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+
+    60% {
+      transform: translateY(-5px) rotate(-0.5deg);
+    }
+  }
+}
+
+@utility w-wrapper {
+  width: min(100% - 4rem, 128rem);
+}
+
+@utility bg-notebook {
+  background-image: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 24px,
+      rgba(0, 0, 0, 0.03) 25px);
+
+  @variant dark {
+    background-image: repeating-linear-gradient(0deg,
+        transparent,
+        transparent 24px,
+        rgba(255, 255, 255, 0.05) 25px);
+  }
+}
