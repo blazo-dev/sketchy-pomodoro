@@ -1,6 +1,6 @@
 import { useMemo, type ReactNode } from "react";
 import usePomodoroReducer from "../../hooks/usePomodoroReducer";
-import { PomodoroContext } from "./PodomoroContext";
+import { PomodoroContext } from "./PomodoroContext";
 
 export function PomodoroProvider({ children }: { children: ReactNode }) {
 
