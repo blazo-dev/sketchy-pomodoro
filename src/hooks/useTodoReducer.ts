@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { TODO_ACTIONS, todoReducer } from "../stores/todo/todoReducer";
-import { initialTodoState } from "../stores/todo/todoInitialState";
 import type { Todo } from "../stores/todo/todoTypes";
+import { initialTodoState } from "../stores/todo/todoInitialState";
 
 export default function useTodoReducer() {
     const [todo, dispatch] = useReducer(todoReducer, initialTodoState);

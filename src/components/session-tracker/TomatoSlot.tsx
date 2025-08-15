@@ -1,4 +1,3 @@
-
 type Props = {
     active?: boolean;
     className?: string;

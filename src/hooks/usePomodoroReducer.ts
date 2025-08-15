@@ -1,9 +1,9 @@
-import { useEffect, useRef, useReducer } from "react";
+import { useEffect, useReducer, useRef } from "react";
+import { initialPomodoroState } from "../stores/pomodoro/pomodoroInitialState";
 import {
     POMODORO_ACTIONS,
     pomodoroReducer,
 } from "../stores/pomodoro/pomodoroReducer";
-import { initialPomodoroState } from "../stores/pomodoro/pomodoroInitialState";
 
 export default function usePomodoroReducer() {
     const [pomodoro, dispatch] = useReducer(

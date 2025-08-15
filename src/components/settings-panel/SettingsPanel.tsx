@@ -1,5 +1,5 @@
-import usePomodoro from '../../hooks/usePomodoro';
-import SettingInput from './SettingInput';
+import usePomodoro from "../../hooks/usePomodoro";
+import SettingInput from "./SettingInput";
 
 function SettingsPanel() {
     const { pomodoro, setDurations } = usePomodoro();

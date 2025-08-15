@@ -1,4 +1,4 @@
-import SketchyInput from '../SketchyInput';
+import SketchyInput from "../SketchyInput";
 
 type SettingInputProps = {
     label: string;

@@ -1,5 +1,5 @@
-import usePomodoro from '../../hooks/usePomodoro';
-import SketchyButton from '../SketchyButton';
+import usePomodoro from "../../hooks/usePomodoro";
+import SketchyButton from "../SketchyButton";
 
 function TimerControls() {
     const { pomodoro, startPomodoro, pausePomodoro, resetPomodoro, completePhase } = usePomodoro();
