@@ -1,9 +1,9 @@
-import SessionTracker from "./components/SessionTracker/SessionTracker"
-import SettingsPanel from "./components/SettingsPanel/SettingsPanel"
+import SessionTracker from "./components/session-tracker/SessionTracker"
+import SettingsPanel from "./components/settings-panel/SettingsPanel"
 import SketchyHeader from "./components/SketchyHeader"
 import ThemeToggle from "./components/ThemeToggle"
-import Timer from "./components/Timer/Timer"
-import Todo from "./components/TodoList/Todo"
+import Timer from "./components/timer/Timer"
+import Todo from "./components/todo-list/Todo"
 import { PomodoroProvider } from "./stores/pomodoro/PomodoroProvider"
 import { TodoProvider } from "./stores/todo/TodoProvider"
 

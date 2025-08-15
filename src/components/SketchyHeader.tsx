@@ -1,4 +1,4 @@
-import IconTomato from './Icos/IconTomato'
+import IconTomato from './icos/IconTomato'
 
 function SketchyHeader() {
     return (
